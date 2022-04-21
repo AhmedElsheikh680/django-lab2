@@ -1,0 +1,20 @@
+
+{% extends 'books_list/base.html' %}
+
+{% load static %}
+
+{% block title %}Book Details {% endblock %}
+
+{% block content %}
+    <a class="link-primary" href="{%  url 'index' %}">Home</a>
+<br><br><br>
+    <h1>Book Details</h1>
+    <hr />
+    <h3>Title : {{book.name}}</h3>
+    <h3>Author: <a href="{% url 'show_author' book.author.id %}">{{book.author}}</a></h3>
+    <h3>Publish Date: {{book.publish_date}}</h3>
+    <h3>Price: {{book.price}}$</h3>
+    <h3>Appropriate: {{book.appropriate}}</h3>
+
+    <img src={{book.image.url}}/>
+{% endblock %}
