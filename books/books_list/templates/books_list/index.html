@@ -5,11 +5,18 @@
 
 {% block content %}
     <h1>Books list</h1>
-
+       <a href="{% url 'create_book' %}" class="link-primary">Create</a>
 <ul>
 
     {% for book in books %}
-    <li><a href={{book.id}}>{{book.name}}</a></li>
+
+
+    <li>
+        <a href={{book.id}}>{{book.name}}</a>
+          <a href="{% url 'edit_book' book.id %}" class="link-info">Edit</a>
+        <a href="{% url 'delete_book' book.id %}" class="link-danger">Delete</a>
+    </li>
+
     {% endfor %}
 
 </ul>
